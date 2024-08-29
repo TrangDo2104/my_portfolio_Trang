@@ -162,7 +162,7 @@ const sendEmail = (e) => {
   e.preventDefault();
 
   // Use EmailJS to send the form data
-  emailjs.sendForm('service_bogalzg', 'template_87mtg9p', '#contact-form', '89K714xZjeDgy7-X0')
+  emailjs.sendForm('service_bogalzg', 'template_5z07lv2', '#contact-form', '89K714xZjeDgy7-X0')
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
       // Show confirmation
