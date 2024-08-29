@@ -1,12 +1,12 @@
-# [Dylan Nguyen] - Portfolio Website
+# Portfolio Website
 
-Welcome to the repository of my personal portfolio website. As an aspiring Data Scientist, this website serves as a comprehensive showcase of my professional background, skills, projects, and contact information. Crafted with passion and precision, it reflects my journey in the field of data science and my enthusiasm for continuous learning and development.
+Welcome to the repository of my personal portfolio website. As an aspiring Data Analyst and Chemical Engineer, this website serves as a comprehensive showcase of my professional background, skills, projects, and contact information. Crafted with passion and precision, it reflects my journey in the field of data science and my enthusiasm for continuous learning and development.
 
 ## Features
 
-- **Home:** An introduction to who I am, highlighting my role as an aspiring Data Scientist.
+- **Home:** An introduction to who I am, highlighting my role as an aspiring Business Analyst and Process Engineer.
 - **About:** A section detailing my professional background, education, and key skills.
-- **Projects:** Showcases a selection of my projects, demonstrating my expertise and contributions to the field of data science.
+- **Projects:** Showcases a selection of my projects, demonstrating my expertise and contributions to the field of data science and chemical.
 - **Contact:** A form and information for getting in touch with me for professional inquiries or collaborations.
 
 ## Technologies Used
@@ -28,8 +28,6 @@ All rights reserved. The content and source code in this repository are my exclu
 
 Feel free to connect with me on my professional network profiles:
 
-- **LinkedIn:** [https://www.linkedin.com/in/nguyen-kim-khai-327957263/](https://www.linkedin.com/in/nguyen-kim-khai-327957263/)
-- **Kaggle:** [https://www.kaggle.com/kimkhainguyen](https://www.kaggle.com/kimkhainguyen)
-- **GitHub:** [https://github.com/DylanNguyen2111](https://github.com/DylanNguyen2111)
+- **LinkedIn:** [https://www.linkedin.com/in/trangdo2104/]
 
 Thank you for visiting my portfolio website repository!
