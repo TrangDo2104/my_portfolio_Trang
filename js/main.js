@@ -162,17 +162,17 @@ const sendEmail = (e) => {
   e.preventDefault();
 
   // Use EmailJS to send the form data
-  emailjs.sendForm('service_z3043tg', 'template_iu2a0u9', '#contact-form', '9dWIYRnlvISrOuFgH')
+  emailjs.sendForm('service_bogalzg', 'template_87mtg9p', '#contact-form', '89K714xZjeDgy7-X0')
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
       // Show confirmation
-      contactMessage.textContent = 'Message sent successfully ✅';
+      contactMessage.textContent = 'Message sent successfully';
       // Clear input fields
       contactForm.reset();
     }, (error) => {
       console.log('FAILED...', error);
       // Show error message
-      contactMessage.textContent = 'Message not sent (service error) ❌';
+      contactMessage.textContent = 'Message not sent (service error)';
     });
 
   // Optionally, remove message after a delay
