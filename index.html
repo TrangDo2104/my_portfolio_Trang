@@ -921,144 +921,313 @@
                 </form>
             </div>
         </section>
-        <!-- ====== RESUME SECTION ====== -->
-        <section id="resume" class="resume section">
-            <h2 class="section-title">Resume</h2>
-            <span class="section-subtitle">Education & Experience</span>
-
-            <!-- EDUCATION -->
-            <div class="resume-container container">
-                <h3 class="resume-heading">Education</h3>
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>Nanyang Technological University, Singapore</h4>
-                        <p><em>Bachelor of Chemical & Biomolecular Engineering</em></p>
-                        <p class="resume-date">Aug 2022 - Dec 2025</p>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <title>Resume Section with Flip Cards</title>
+        
+          <!-- GOOGLE FONTS (Poppins) -->
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" 
+            rel="stylesheet" 
+          />
+        
+          <style>
+            /* BASE RESET & VARIABLES */
+            * {
+              margin: 0; 
+              padding: 0; 
+              box-sizing: border-box;
+            }
+            :root {
+              --hue-color: 4; /* Example hue for accent color */
+              --first-color: hsl(var(--hue-color), 88%, 66%);
+              --container-color: #fff;
+              --title-color: #222;
+              --text-color: #555;
+              --text-color-light: #888;
+              --body-color: #f7f7f7;
+              --font-family: "Poppins", sans-serif;
+            }
+            body {
+              font-family: var(--font-family);
+              background-color: var(--body-color);
+              color: var(--text-color);
+              line-height: 1.6;
+            }
+        
+            h2, h3 {
+              color: var(--title-color);
+              font-weight: 600;
+            }
+        
+            /* SECTION STYLES */
+            .section {
+              padding: 3rem 1rem;
+              max-width: 1200px;
+              margin: 0 auto;
+              text-align: center;
+            }
+            .section-title {
+              font-size: 2rem;
+              margin-bottom: 0.5rem;
+            }
+            .section-subtitle {
+              font-size: 1rem;
+              color: var(--text-color-light);
+              margin-bottom: 2rem;
+            }
+        
+            /* TABS NAVIGATION */
+            .resume-tabs {
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              margin-bottom: 2rem;
+            }
+            .resume-tab-button {
+              padding: 0.5rem 1rem;
+              border: 2px solid var(--first-color);
+              background-color: transparent;
+              color: var(--title-color);
+              cursor: pointer;
+              border-radius: 0.5rem;
+              transition: 0.3s ease;
+              font-weight: 500;
+            }
+            .resume-tab-button:hover {
+              background-color: var(--first-color);
+              color: #fff;
+            }
+            /* Active Button */
+            .resume-tab-button.active-button {
+              background-color: var(--first-color);
+              color: #fff;
+            }
+        
+            /* TAB PANELS */
+            .resume-content {
+              min-height: 200px; /* Just to ensure space if content is short */
+            }
+            .resume-panel {
+              display: none; /* Hide by default */
+            }
+            .resume-panel.active-panel {
+              display: block; /* Show when active */
+            }
+        
+            /* FLIP-CARDS CONTAINER */
+            .flip-cards-container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 2rem;
+              justify-content: center;
+            }
+        
+            /* FLIP-CARD WRAPPER */
+            .flip-card {
+              background-color: transparent;
+              width: 280px;
+              height: 220px;
+              perspective: 1000px; /* 3D perspective for flip */
+              border-radius: 1rem;
+            }
+        
+            /* INNER: This will actually flip */
+            .flip-card-inner {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              border-radius: 1rem;
+              transition: transform 0.8s;
+              transform-style: preserve-3d;
+            }
+        
+            /* Flip on hover (desktop) */
+            .flip-card:hover .flip-card-inner {
+              transform: rotateY(180deg);
+            }
+        
+            /* CARD FACES */
+            .flip-card-front,
+            .flip-card-back {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              backface-visibility: hidden;
+              border-radius: 1rem;
+              box-shadow: 0 0 0.3rem var(--first-color);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding: 1rem;
+              background-color: var(--container-color);
+            }
+        
+            /* FRONT SIDE */
+            .flip-card-front h3 {
+              margin-bottom: 0.5rem;
+            }
+            .flip-card-front p {
+              margin-bottom: 0.5rem;
+              color: var(--text-color-light);
+            }
+        
+            /* BACK SIDE */
+            .flip-card-back {
+              transform: rotateY(180deg);
+            }
+            .flip-card-back ul {
+              list-style-type: disc;
+              margin-left: 1.25rem;
+              text-align: left;
+            }
+            .flip-card-back li {
+              margin-bottom: 0.5rem;
+            }
+        
+            .date-range {
+              font-size: 0.85rem;
+              font-style: italic;
+              color: var(--text-color-light);
+            }
+        
+            /* MEDIA QUERIES (Just basic) */
+            @media screen and (max-width: 768px) {
+              .flip-card {
+                width: 90%;
+                max-width: 320px;
+                margin: 0 auto;
+              }
+            }
+          </style>
+        </head>
+        <body>
+        
+          <!-- ====== RESUME SECTION ====== -->
+          <section id="resume" class="resume section">
+              <h2 class="section-title">Resume</h2>
+              <span class="section-subtitle">Education &amp; Experience</span>
+        
+              <!-- TABS NAV -->
+              <div class="resume-tabs">
+                <button class="resume-tab-button active-button" data-target="#education">Education</button>
+                <button class="resume-tab-button" data-target="#work">Work Experience</button>
+              </div>
+        
+              <!-- TAB CONTENT WRAPPER -->
+              <div class="resume-content">
+        
+                <!-- EDUCATION PANEL -->
+                <div id="education" class="resume-panel active-panel">
+                  <div class="flip-cards-container">
+        
+                    <!-- Flip-Card #1: NTU -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                          <h3>Nanyang Technological University</h3>
+                          <p><em>Bachelor of Chemical &amp; Biomolecular Engineering</em></p>
+                          <p class="date-range">Aug 2022 - Dec 2025</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                          <ul>
+                            <li><strong>Specialization:</strong> Machine Learning &amp; Data Analytics</li>
+                            <li><strong>Honours (Distinction)</strong></li>
+                            <li><strong>Awards:</strong> ASEAN Undergraduate Scholarship (Full Ride Scholarship)</li>
+                            <li><strong>Relevant Training:</strong> Supply Chain Management, Financial Engineering &amp; Risk Management</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <ul class="resume-card-details">
-                        <li><strong>Specialization:</strong> Machine Learning & Data Analytics</li>
-                        <li><strong>Honours (Distinction)</strong></li>
-                        <li><strong>Awards:</strong> ASEAN Undergraduate Scholarship (Full Ride Scholarship)</li>
-                        <li><strong>Relevant Training:</strong> Supply Chain Management Specialization, Financial Engineering & Risk Management</li>
-                    </ul>
+                    
+                    <!-- (Add More Flip-Cards for Other Educational Experiences If Any) -->
+        
+                  </div>
                 </div>
-            </div>
-
-            <!-- WORK EXPERIENCE -->
-            <div class="resume-container container">
-                <h3 class="resume-heading">Work Experience</h3>
-                
-                <!-- P&G -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>Procter & Gamble</h4>
-                        <p><em>Incoming Product Supply Management Intern</em></p>
-                        <p class="resume-date">May 2025 - Jul 2025 (Expected)</p>
+        
+                <!-- WORK EXPERIENCE PANEL -->
+                <div id="work" class="resume-panel">
+                  <div class="flip-cards-container">
+        
+                    <!-- Flip-Card #1: P&G -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                          <h3>Procter &amp; Gamble</h3>
+                          <p><em>Incoming Product Supply Management Intern</em></p>
+                          <p class="date-range">May 2025 - Jul 2025 (Expected)</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                          <ul>
+                            <li>Analyzing cost-saving opportunities.</li>
+                            <li>Enhancing supply chain network efficiency.</li>
+                            <li>Leveraging automation to improve inventory management.</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <ul class="resume-card-details">
-                        <li>Analyzing cost-saving opportunities, enhancing supply chain network efficiency.</li>
-                        <li>Leveraging automation to improve inventory management.</li>
-                    </ul>
-                </div>
-
-                <!-- SABIC -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>SABIC</h4>
-                        <p><em>Incoming Commercial Analyst - Supply Chain & Logistics Intern</em></p>
-                        <p class="resume-date">Jul 2025 - Dec 2025 (Expected)</p>
+        
+                    <!-- Flip-Card #2: SABIC -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                          <h3>SABIC</h3>
+                          <p><em>Incoming Commercial Analyst - Supply Chain &amp; Logistics Intern</em></p>
+                          <p class="date-range">Jul 2025 - Dec 2025 (Expected)</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                          <ul>
+                            <li>Strategic supply chain planning at a global chemical manufacturer.</li>
+                            <li>Assessing feasibility of a chemical storage tank and optimizing logistics.</li>
+                            <li>Analyzing market dynamics to enhance regional distribution.</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <ul class="resume-card-details">
-                        <li>Strategic supply chain planning at a top 2 global chemical manufacturer.</li>
-                        <li>Assessing feasibility of a chemical storage tank and optimizing logistics for cost efficiency.</li>
-                        <li>Analyzing market dynamics to enhance regional distribution.</li>
-                    </ul>
+        
+                    <!-- (Add More Flip-Cards for DKSH, BASF, Philips Lighting, etc.) -->
+                  </div>
                 </div>
-
-                <!-- DKSH -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>DKSH</h4>
-                        <p><em>Supply Chain Management & Finance Intern</em></p>
-                        <p class="resume-date">Oct 2024 - Present</p>
-                    </div>
-                    <ul class="resume-card-details">
-                        <li>Developed 6+ Power BI reports analyzing global logistics costs, personnel costs, and volume KPIs.</li>
-                        <li>Reduced carrying costs by 15% through inventory optimization and cross-dock minimization.</li>
-                        <li>Streamlined data processing with SAP Lighthouse reports and Power BI automation, saving 3 hours/day.</li>
-                    </ul>
-                </div>
-
-                <!-- BASF -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>BASF</h4>
-                        <p><em>Supply Chain Process Optimization Project</em></p>
-                        <p class="resume-date">Oct 2024 - Dec 2024</p>
-                    </div>
-                    <ul class="resume-card-details">
-                        <li>Led a 7-person team to boost demand and warehouse planning efficiency by 15%.</li>
-                        <li>Automated GIB forecast reports, improved inbound shipment management, and reduced delays.</li>
-                    </ul>
-                </div>
-
-                <!-- Philips Lighting -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>Philips Lighting</h4>
-                        <p><em>Business Analyst & Supply Chain Management Intern</em></p>
-                        <p class="resume-date">May 2024 - Oct 2024</p>
-                    </div>
-                    <ul class="resume-card-details">
-                        <li>Analyzed 10,000+ customer reviews using ChatGPT-powered sentiment analysis to guide procurement and sourcing.</li>
-                        <li>Enhanced forecasting by integrating predictive models and automating sales data for 200+ B2C deals/month.</li>
-                        <li>Optimized inventory and SKU management by identifying demand shifts through AI-driven insights.</li>
-                    </ul>
-                </div>
-
-                <!-- Chimp AI -->
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>Chimp AI - Sweden</h4>
-                        <p><em>Machine Learning Engineer Intern</em></p>
-                        <p class="resume-date">Mar 2024 - Jun 2024</p>
-                    </div>
-                    <ul class="resume-card-details">
-                        <li>Collaborated with a global team to build an AI-driven career advisory platform (90% user satisfaction).</li>
-                        <li>Utilized PDF Processing AI, MySQL on Google Cloud, and OpenAI GPT-4 for personalized job search experiences.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- LEADERSHIP/EXTRACURRICULAR -->
-            <div class="resume-container container">
-                <h3 class="resume-heading">Leadership & Extracurricular</h3>
-                <div class="resume-card">
-                    <div class="resume-card-header">
-                        <h4>NTU Vietnamese Freshmen Orientation Camp</h4>
-                        <p><em>Chairperson</em></p>
-                        <p class="resume-date">Jul 2022 - Aug 2023</p>
-                    </div>
-                    <ul class="resume-card-details">
-                        <li>Coordinated orientation for 40+ Vietnamese freshmen, partnering with major high schools and consulting companies.</li>
-                        <li>Organized a Freshmen Orientation Camp for 130 participants, achieving a 4.5/5 satisfaction rating.</li>
-                        <li>Secured $3,300 in sponsorships (67% of expenses) by leading a team of 40 and managing finances.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- SKILLS -->
-            <div class="resume-container container">
-                <h3 class="resume-heading">Skills</h3>
-                <div class="resume-card">
-                    <ul class="resume-card-details">
-                        <li><strong>Technological:</strong> Python, Excel VBA, Power BI, Power Automate, SQL, Selenium, Octoparse, TensorFlow, PyTorch</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-    </main>
+        
+              </div>
+          </section>
+        
+          <!-- SIMPLE JS FOR TAB SWITCHING -->
+          <script>
+            const tabButtons = document.querySelectorAll('.resume-tab-button');
+            const panels = document.querySelectorAll('.resume-panel');
+        
+            tabButtons.forEach((btn) => {
+              btn.addEventListener('click', () => {
+                // Remove 'active-button' from all tabs
+                tabButtons.forEach((b) => b.classList.remove('active-button'));
+                // Hide all panels
+                panels.forEach((panel) => panel.classList.remove('active-panel'));
+        
+                // Add 'active-button' to clicked tab
+                btn.classList.add('active-button');
+                // Show the corresponding panel
+                const targetId = btn.getAttribute('data-target');
+                document.querySelector(targetId).classList.add('active-panel');
+              });
+            });
+          </script>
+        
+        </body>
+        </html>
+        
 
     <!-- FOOTER -->
     <footer class="footer">
