@@ -220,8 +220,8 @@ sr.reveal('.project-bg', {interval: 100, origin: 'left'})
 /* TYPED ANIMATION */
 const typed = new Typed('.multiple-text', {
   strings: ['Supply Chain Management Professional','Business Analyst', 'Commercial Analyst'],
-  typeSpeed: 100,
-  backSpeed: 100,
+  typeSpeed: 300,
+  backSpeed: 300,
   backDelay: 1000,
   loop: true
 })
